@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { Route, Routes } from "react-router-dom";
-import "./App.css";
 import { useAppDispatch, useAppSelector } from "./app/hook";
-import ProductAdd from "./components/product-add";
+import ProductAdd from "./pages/admin/product/product-add";
 import LayoutAdmin from "./layouts/LayoutAdmin";
 import LayoutWebsite from "./layouts/LayoutWebsite";
 import { login } from "./slice/auth";
-const ProductEdit = React.lazy(() => import("./components/product-edit"));
-const Product = React.lazy(() => import("./components/product"));
+import Product from "./pages/admin/product/product";
+import ProductEdit from "./pages/admin/product/product-edit";
+
 
 function App() {
     const dispatch = useAppDispatch();
@@ -16,8 +16,6 @@ function App() {
 
     return (
         <div className="App">
-            state isLogin {isLogin ? "Đã login" : "Chưa login"}
-            <button onClick={() => dispatch(login())}>Change state</button>
             <Routes>
                 <Route path="/" element={<LayoutWebsite />}>
                     <Route index element={<h1>Home Page</h1>} />

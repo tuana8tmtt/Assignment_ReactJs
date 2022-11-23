@@ -1,34 +1,35 @@
 import { useParams } from "react-router-dom";
 import { useForm, SubmitHandler } from "react-hook-form";
-import { IProduct } from "../interfaces/product";
+import { IProduct } from "../../../interfaces/product";
 import { useEffect } from "react";
-import { useAppDispatch } from "../app/hook";
-import { useAddProductMutation } from "../services/product";
+import { useAppDispatch } from "../../../app/hook";
 
 type Props = {};
 
-const ProductAdd = (props: Props) => {
-    const [addProduct, result] = useAddProductMutation();
+const ProductEdit = (props: Props) => {
     const {
         register,
         handleSubmit,
         reset,
         formState: { errors },
     } = useForm<IProduct>();
+    const dispatch = useAppDispatch();
+    const { id } = useParams();
+
     const onSubmit: SubmitHandler<IProduct> = (data) => {
         //
-        addProduct(data);
     };
-
+    useEffect(() => {
+        (async () => {})();
+    }, [id]);
     return (
         <div>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <input type="text" {...register("name")} />
                 <input type="text" {...register("price")} />
-                <button>Add</button>
             </form>
         </div>
     );
 };
 
-export default ProductAdd;
+export default ProductEdit;
