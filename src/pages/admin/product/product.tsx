@@ -80,7 +80,7 @@ const Product = (props: Props) => {
     ];
     return (
         <div>
-            <Link to="/admin/products/add">Add</Link>
+            <Button><Link to="/admin/products/add" className="my-6">Add Product</Link></Button>
             <Table columns={columns} dataSource={dataTable} />
         </div>
     );

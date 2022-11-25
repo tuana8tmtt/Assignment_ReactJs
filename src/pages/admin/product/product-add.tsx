@@ -4,6 +4,7 @@ import { IProduct } from "../../../interfaces/product";
 import { useEffect } from "react";
 import { useAppDispatch } from "../../../app/hook";
 import { useAddProductMutation } from "../../../services/product";
+import { Button, Form, Input } from "antd";
 
 type Props = {};
 
@@ -22,11 +23,33 @@ const ProductAdd = (props: Props) => {
 
     return (
         <div>
-            <form onSubmit={handleSubmit(onSubmit)}>
-                <input type="text" {...register("name")} />
-                <input type="text" {...register("price")} />
-                <button>Add</button>
-            </form>
+            <Form
+                name="basic"
+                initialValues={{ remember: true }}
+                onFinish={onSubmit}
+            >
+                <Form.Item
+                    label="Tên sản phẩm"
+                    name="name"
+                    rules={[{ required: true, message: 'Không được để trống mục này' }]}
+                >
+                    <Input />
+                </Form.Item>
+
+                <Form.Item
+                    label="Giá sản phẩm"
+                    name="price"
+                    rules={[{ required: true, message: 'Không được để trống mục này' }]}
+                >
+                    <Input />
+                </Form.Item>
+
+                <Form.Item>
+                    <Button type="primary" htmlType="submit">
+                        Thêm sản phẩm
+                    </Button>
+                </Form.Item>
+            </Form>
         </div>
     );
 };
