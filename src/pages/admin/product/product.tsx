@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../../app/hook";
 import { IProduct } from "../../../interfaces/product";
-import { useGetProductsQuery } from "../../../services/product";
+import { useGetProductsQuery, useRemoveProductMutation } from "../../../services/product";
 import { Button, message, Popconfirm, Space, Table, Tag } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
 
@@ -13,6 +13,7 @@ const Product = (props: Props) => {
     const [open, setOpen] = useState(false);
     const [confirmLoading, setConfirmLoading] = useState(false);
     const { data: products = [] as IProduct[], error, isLoading } = useGetProductsQuery(undefined);
+    const [removeProduct, results] = useRemoveProductMutation()
     const dataTable = products.map((item: IProduct, index: number) => {
         return {
             key: index + 1,
@@ -26,7 +27,7 @@ const Product = (props: Props) => {
         const key = 'updatable';
         setConfirmLoading(true);
         message.loading({ content: 'Loading...', key });
-        
+        removeProduct(id)
         setTimeout(() => {
             setOpen(false);
             setConfirmLoading(false);

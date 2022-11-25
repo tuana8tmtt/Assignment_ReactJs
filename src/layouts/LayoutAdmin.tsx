@@ -6,7 +6,7 @@ import {
     DesktopOutlined,
     MailOutlined,
     MenuFoldOutlined,
-    MenuUnfoldOutlined,
+    UnorderedListOutlined,
     PieChartOutlined,
 } from '@ant-design/icons';
 import { Breadcrumb, Layout, Menu } from 'antd';
@@ -35,6 +35,7 @@ type Props = {};
 const LayoutAdmin = (props: Props) => {
     const items: MenuItem[] = [
         getItem(<NavLink to={"/admin"}>Dashboard</NavLink>, '1', <PieChartOutlined />),
+        getItem(<NavLink to={"/admin/category"}>Category</NavLink>, '4', <UnorderedListOutlined />),
         getItem(<NavLink to={"/admin/products"}>Product</NavLink>, '2', <DesktopOutlined />),
         getItem(<NavLink to={"/admin/user"}>User</NavLink>, '3', <ContainerOutlined />),
     ];

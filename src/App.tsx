@@ -8,11 +8,12 @@ import LayoutWebsite from "./layouts/LayoutWebsite";
 import { login } from "./slice/auth";
 import Product from "./pages/admin/product/product";
 import ProductEdit from "./pages/admin/product/product-edit";
+import ListCategory from "./pages/admin/categories/listCategory";
+import AddCategory from "./pages/admin/categories/addCategory";
+import EditCategory from "./pages/admin/categories/editCategory";
 
 
 function App() {
-    const dispatch = useAppDispatch();
-    const isLogin = useAppSelector((state) => state.auth.isLogin);
 
     return (
         <div className="App">
@@ -23,9 +24,16 @@ function App() {
                 </Route>
                 <Route path="/admin" element={<LayoutAdmin />}>
                     <Route index element={<h1>Dashboard</h1>} />
-                    <Route path="products" element={<Product />} />
-                    <Route path="products/add" element={<ProductAdd />} />
-                    <Route path="products/:id/edit" element={<ProductEdit />} />
+                    <Route path="products">
+                        <Route index element={<Product />} />
+                        <Route path="add" element={<ProductAdd />} />
+                        <Route path=":id/edit" element={<ProductEdit />} />
+                    </Route>
+                    <Route path="category">
+                        <Route index element={<ListCategory />} />
+                        <Route path="add" element={<AddCategory />} />
+                        <Route path=":id/edit" element={<EditCategory />} />
+                    </Route>
                 </Route>
             </Routes>
         </div>
