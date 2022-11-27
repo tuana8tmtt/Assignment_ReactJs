@@ -27,5 +27,23 @@
       "price": "312312312",
       "id": 6
     }
+  ],
+  "category": [
+    {
+      "name": "Iphone",
+      "id": 1
+    },
+    {
+      "id": 2,
+      "name": "Laptop"
+    },
+    {
+      "name": "SamSung",
+      "id": 3
+    },
+    {
+      "id": 5,
+      "name": "Xiaomi"
+    }
   ]
 }
