@@ -5,7 +5,6 @@ import { useAppDispatch, useAppSelector } from "./app/hook";
 import ProductAdd from "./pages/admin/product/product-add";
 import LayoutAdmin from "./layouts/LayoutAdmin";
 import LayoutWebsite from "./layouts/LayoutWebsite";
-import { login } from "./slice/auth";
 import Product from "./pages/admin/product/product";
 import ProductEdit from "./pages/admin/product/product-edit";
 import ListCategory from "./pages/admin/categories/listCategory";

@@ -1,4 +1,4 @@
 export interface CateType {
-    id?: number;
+    id?: number | string;
     name: string
 }

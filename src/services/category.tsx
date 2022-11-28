@@ -6,16 +6,16 @@ export const categoryApi = createApi({
     tagTypes: ["Category"],
     endpoints: (builder) => ({
         getCategorys: builder.query({
-            query: () => "/category",
+            query: () => "/categorys",
             providesTags: ["Category"]
         }),
         getCategory: builder.query({
-            query: (id) => "/category/" + id,
+            query: (id) => "/categorys/" + id,
             providesTags: ["Category"]
         }),
         addCate: builder.mutation({
             query: (data) => ({
-                url: "/category",
+                url: "/categorys",
                 method: "POST",
                 body: data
             }),
@@ -23,7 +23,7 @@ export const categoryApi = createApi({
         }),
         updateCate: builder.mutation({
             query: (data) => ({
-                url: "/category/" + data.id,
+                url: "/categorys/" + data.id,
                 method: "PUT",
                 body: data
             }),
@@ -31,7 +31,7 @@ export const categoryApi = createApi({
         }),
         removeCate: builder.mutation({
             query: (id) => ({
-                url: "/category/" + id,
+                url: "/categorys/" + id,
                 method: "DELETE"
             })
         })

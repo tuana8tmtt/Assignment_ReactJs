@@ -1,34 +1,31 @@
 {
   "products": [
     {
-      "id": 1,
-      "name": "Product 1",
-      "price": 100,
-      "quantity": 1
+      "name": "Iphone 13 Pro Max",
+      "price": 20000000,
+      "categoryId": 1,
+      "image": "http://res.cloudinary.com/chanh-thon/image/upload/v1669565936/upload_preset/drnrypjzdepu01am2jag.jpg",
+      "desc": "<p>hay</p>",
+      "id": 5
     },
     {
-      "id": 2,
-      "name": "Product 2",
-      "price": 200,
-      "quantity": 2
+      "id": 6,
+      "name": "Apple Watch serri 10",
+      "price": 10000,
+      "categoryId": 1,
+      "image": "http://res.cloudinary.com/chanh-thon/image/upload/v1669568270/upload_preset/m7au3ogr9vxpqpcjrnd6.png",
+      "desc": "<p>hahaha</p>"
     },
     {
-      "name": "New Product 10",
-      "price": "123",
-      "id": 3
-    },
-    {
-      "name": "1232131",
-      "price": "123213123",
-      "id": 4
-    },
-    {
-      "name": "123131312321",
-      "price": "312312312",
-      "id": 6
+      "name": "Iphone 13 Pro Max",
+      "price": 1222222222,
+      "categoryId": 3,
+      "image": "http://res.cloudinary.com/dbo0o124i/image/upload/v1669619844/fd6qsvqbdwugtkuwfxek.jpg",
+      "desc": "<p>hay</p>",
+      "id": 7
     }
   ],
-  "category": [
+  "categorys": [
     {
       "name": "Iphone",
       "id": 1

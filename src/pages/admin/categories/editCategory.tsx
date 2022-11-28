@@ -14,17 +14,18 @@ const editCategory = (props: Props) => {
   const navigate = useNavigate()
   useEffect(() => {
     form.setFieldsValue(getCate)
-  },[getCate])
-  
+  }, [getCate])
+
   const onSubmit = (data: CateType) => {
     editCate(data);
     message.success("Thành công")
     setTimeout(() => {
       navigate('/admin/category')
-    },2000)
+    }, 2000)
   };
   return (
     <div>
+      <h1 className="text-2xl py-2">Sửa danh mục</h1>
       <Form
         name="basic"
         initialValues={{ remember: true }}

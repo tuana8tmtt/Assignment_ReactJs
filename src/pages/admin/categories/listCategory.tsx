@@ -72,6 +72,7 @@ const listCategory = (props: Props) => {
   ];
   return (
     <div>
+      <h1 className="text-2xl py-2">Danh sách danh mục</h1>
       <Button><Link to="/admin/category/add" className="my-6">Add Category</Link></Button>
       <Table columns={columns} dataSource={dataTable} />
     </div>

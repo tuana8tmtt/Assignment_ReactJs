@@ -16,6 +16,7 @@ const addCategory = (props: Props) => {
   };
   return (
     <div>
+      <h1 className="text-2xl py-2">Thêm Danh Mục</h1>
       <Form
         name="basic"
         initialValues={{ remember: true }}
