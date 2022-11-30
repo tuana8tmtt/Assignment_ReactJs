@@ -10,6 +10,14 @@ import ProductEdit from "./pages/admin/product/product-edit";
 import ListCategory from "./pages/admin/categories/listCategory";
 import AddCategory from "./pages/admin/categories/addCategory";
 import EditCategory from "./pages/admin/categories/editCategory";
+import Home from "./pages/Home";
+import DetailProduct from "./pages/client/DetailProduct";
+import Signin from "./pages/auth/Signin";
+import SignUp from "./pages/auth/SignUp";
+import ProductList from "./pages/client/Product";
+import CheckOut from "./pages/client/CheckOut";
+import Account from "./pages/auth/Account";
+import Profile from "./pages/auth/Profile";
 
 
 function App() {
@@ -18,8 +26,16 @@ function App() {
         <div className="App">
             <Routes>
                 <Route path="/" element={<LayoutWebsite />}>
-                    <Route index element={<h1>Home Page</h1>} />
+                    <Route index element={<Home />} />
+                    <Route path="products" element={<ProductList />} />
+                    <Route path="products/:id" element={<DetailProduct />} />
+                    <Route path="checkout" element={<CheckOut />} />
+                    <Route path="account" element={<Account />} />
+                    <Route path="profile" element={<Profile />} />
                     <Route path="about" element={<h1>About Page</h1>} />
+
+                    <Route path="signin" element={<Signin />} />
+                    <Route path="signup" element={<SignUp />} />
                 </Route>
                 <Route path="/admin" element={<LayoutAdmin />}>
                     <Route index element={<h1>Dashboard</h1>} />
