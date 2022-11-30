@@ -1,12 +1,13 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
+import Header from "../components/Header";
 
 type Props = {};
 
 const LayoutWebsite = (props: Props) => {
     return (
         <div>
-            <header>Header</header>
+            <Header />
             <main>
                 <Outlet />
             </main>
