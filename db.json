@@ -27,20 +27,55 @@
   ],
   "categorys": [
     {
+      "id": 1,
       "name": "Iphone",
-      "id": 1
+      "image": "http://res.cloudinary.com/dbo0o124i/image/upload/v1669796052/apgbhwysnjrtac7metzb.jpg"
     },
     {
       "id": 2,
-      "name": "Laptop"
+      "name": "Laptop",
+      "image": "http://res.cloudinary.com/dbo0o124i/image/upload/v1669796145/guwtyiomy0wn7qdjul4n.jpg"
     },
     {
+      "id": 3,
       "name": "SamSung",
-      "id": 3
+      "image": "http://res.cloudinary.com/dbo0o124i/image/upload/v1669796163/mmyq0qxijdywwviagkot.jpg"
     },
     {
       "id": 5,
-      "name": "Xiaomi"
+      "name": "Xiaomi",
+      "image": "http://res.cloudinary.com/dbo0o124i/image/upload/v1669796341/zain515booc7wmrffeic.png"
+    },
+    {
+      "name": "Tai nghe",
+      "image": "http://res.cloudinary.com/dbo0o124i/image/upload/v1669796190/q5ycdb47de389slyzcdz.jpg",
+      "id": 6
+    }
+  ],
+  "users": [
+    {
+      "email": "nam@123.com",
+      "password": "$2a$10$TUFkHMjUo16pkZ9MZYCOG.wj.jSfUNZJ0Kd2/FKi/3Y8QdSZlxUGy",
+      "username": "Hoàng Nam",
+      "role": "admin",
+      "image": "https://ui-avatars.com/api/?uppercase=true&name=Hoàng Nam&background=336699&size=500",
+      "id": 1
+    },
+    {
+      "email": "nam@1234.com",
+      "password": "$2a$10$T9pW.T1hDz1PgsAOSinJkeQGe4K6avDJlaOLBSEcD7xis39J08OEe",
+      "username": "Hoàng Nam",
+      "role": "user",
+      "image": "https://ui-avatars.com/api/?uppercase=true&name=Hoàng Nam&background=009900&size=500",
+      "id": 2
+    },
+    {
+      "email": "123@gmail.com",
+      "password": "$2a$10$vENFkor0AGc1fKV5c9HU5.bSmRA2lgQE4YLs38wW0YjYOl66qlWry",
+      "username": "Hoàng Nam",
+      "role": "user",
+      "image": "https://ui-avatars.com/api/?uppercase=true&name=Hoàng Nam&background=336666&size=500",
+      "id": 3
     }
   ]
 }

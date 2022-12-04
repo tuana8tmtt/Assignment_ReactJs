@@ -18,6 +18,7 @@ import ProductList from "./pages/client/Product";
 import CheckOut from "./pages/client/CheckOut";
 import Account from "./pages/auth/Account";
 import Profile from "./pages/auth/Profile";
+import LayoutPrivate from "./layouts/LayoutPrivate";
 
 
 function App() {
@@ -37,7 +38,7 @@ function App() {
                     <Route path="signin" element={<Signin />} />
                     <Route path="signup" element={<SignUp />} />
                 </Route>
-                <Route path="/admin" element={<LayoutAdmin />}>
+                <Route path="/admin" element={<LayoutPrivate><LayoutAdmin /></LayoutPrivate>}>
                     <Route index element={<h1>Dashboard</h1>} />
                     <Route path="products">
                         <Route index element={<Product />} />

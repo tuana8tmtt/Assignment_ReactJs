@@ -16,6 +16,7 @@ const listCategory = (props: Props) => {
       key: index + 1,
       id: item.id,
       name: item.name,
+      image: item.image
     }
   })
 
@@ -40,6 +41,12 @@ const listCategory = (props: Props) => {
       title: 'STT',
       dataIndex: 'key',
       key: 'key',
+    },
+    {
+      title: 'Hình ảnh',
+      dataIndex: 'image',
+      key: 'image',
+      render: (text) => <div><img src={text} className="w-16" alt="" /></div>,
     },
     {
       title: 'Category',
