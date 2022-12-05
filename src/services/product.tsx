@@ -13,6 +13,10 @@ export const productApi = createApi({
             query: (id) => "/products/" + id,
             providesTags: ["Product"],
         }),
+        getProductByCate: builder.query({
+            query: () => "/categorys?_embed=products",
+            providesTags: ["Product"]
+        }),
         addProduct: builder.mutation({
             query: (product) => ({
                 url: "/products",
@@ -45,4 +49,5 @@ export const {
     useAddProductMutation,
     useRemoveProductMutation,
     useUpdateProductMutation,
+    useGetProductByCateQuery
 } = productApi;

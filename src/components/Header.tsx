@@ -83,7 +83,7 @@ const Header = (props: Props) => {
                         <div className="absolute w-full left-0 top-full bg-white shadow-md py-3 divide-y divide-gray-300 divide-dashed opacity-0 group-hover:opacity-100 transition duration-300 invisible group-hover:visible">
                             {cate.map((item: CateType, index: number) => {
                                 return (
-                                    <NavLink to={'category/' + item.id} className="flex items-center px-6 py-3 hover:bg-gray-100 transition">
+                                    <NavLink to={'category/' + item.id} className="flex items-center px-6 py-3 hover:bg-gray-100 transition" key={index + 1}>
                                         <img src={item.image} alt="terrace" className="w-10 h-10 object-contain" />
                                         <span className="ml-6 text-gray-600 text-sm">{item.name}</span>
                                     </NavLink>

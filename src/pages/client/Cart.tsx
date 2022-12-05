@@ -15,7 +15,6 @@ const Cart = (props: Props) => {
     const { cart } = useAppSelector((state: any) => state.cart);
     console.log(cart);
     const dispatch = useAppDispatch();
-
     return (
         <div>
             <div className="container mx-auto mt-10">
