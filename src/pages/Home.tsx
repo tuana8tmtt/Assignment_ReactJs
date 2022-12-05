@@ -1,3 +1,4 @@
+import { List } from 'antd';
 import React from 'react'
 import { NavLink } from 'react-router-dom';
 import Header from '../components/Header'
@@ -16,14 +17,16 @@ const Home = (props: Props) => {
   return (
     <div>
       <div>
-        <div className="bg-cover bg-no-repeat bg-center py-36" style={{ backgroundImage: 'url("./src/assets/images/banner-bg.jpg")' }}>
+        <div className="bg-cover bg-no-repeat bg-center py-36" style={{ backgroundImage: 'url("https://store.marvansmobile.com/assets_2/images/demos/demo1/slides/slide1.jpg")' }}>
           <div className="container">
             <h1 className="text-6xl text-gray-800 font-medium mb-4 capitalize">
-              best collection for <br /> home decoration
+              Bộ sưu tập mới nhất <br /> cho công nghệ
             </h1>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aperiam <br />
-              accusantium perspiciatis, sapiente
-              magni eos dolorum ex quos dolores odio</p>
+            <p>Những thiết bị công nghệ hiện đại càng lúc càng chiếm vai trò <br />
+              quan trọng trong cuộc sống của con người. Không chỉ làm tốt nhiệm vụ trong công việc, <br />
+              những món đồ chơi thế hệ mới còn giúp cho con người có thể giải trí theo những cách <br />
+              hoàn toàn mới lạ so với trước đây. Chính vì thế, chúng ngày càng được nhiều người vô cùng ưa thích <br />
+              và ưa chuộng để tận hưởng cuộc sống và thực hiện những đam mê, sở thích của bản thân. </p>
             <div className="mt-12">
               <a href="#" className="bg-primary border border-primary text-white px-8 py-3 font-medium 
             rounded-md hover:bg-transparent hover:text-primary">Shop Now</a>
@@ -86,18 +89,15 @@ const Home = (props: Props) => {
                     </div>
                     <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center 
                     justify-center gap-2 opacity-0 group-hover:opacity-100 transition">
-                      <a href="#" className="text-white text-lg w-9 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition" title="view product">
+                      <NavLink to={`/products/${item.id}`} className="text-white text-lg w-9 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition" title="view product">
                         <i className="fa-solid fa-magnifying-glass" />
-                      </a>
-                      <a href="#" className="text-white text-lg w-9 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition" title="add to wishlist">
-                        <i className="fa-solid fa-heart" />
-                      </a>
+                      </NavLink>
                     </div>
                   </div>
                   <div className="pt-4 pb-3 px-4">
-                    <a href="#">
+                    <NavLink to={`/products/${item.id}`}>
                       <h4 className="uppercase font-medium text-xl mb-2 text-gray-800 hover:text-primary transition">{item.name}</h4>
-                    </a>
+                    </NavLink>
                     <div className="flex items-baseline mb-1 space-x-2">
                       <p className="text-xl text-primary font-semibold">{Money(item.price)}</p>
                     </div>
@@ -112,18 +112,19 @@ const Home = (props: Props) => {
                       <div className="text-xs text-gray-500 ml-3">(150)</div>
                     </div>
                   </div>
-                  <a href="#" className="block w-full py-1 text-center text-white bg-primary border border-primary rounded-b hover:bg-transparent hover:text-primary transition">Add
-                    to cart</a>
+                  <NavLink to={`/products/${item.id}`} className="block w-full py-1 text-center text-white bg-primary border border-primary rounded-b hover:bg-transparent hover:text-primary transition">
+                    Thêm sản phẩm</NavLink>
                 </div>
               )
             })}
+
           </div>
         </div>
         {/* ./new arrival */}
         {/* ads */}
         <div className="container pb-16">
           <a href="#">
-            <img src="./src/assets/images/offer.jpg" alt="ads" className="w-full" />
+            <img src="https://img4.thuthuatphanmem.vn/uploads/2020/06/26/hinh-anh-banner-dien-may-thong-minh_033705387.png" alt="ads" className="w-full" />
           </a>
         </div>
         {/* ./ads */}
@@ -140,18 +141,15 @@ const Home = (props: Props) => {
                     </div>
                     <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center 
                     justify-center gap-2 opacity-0 group-hover:opacity-100 transition">
-                      <a href="#" className="text-white text-lg w-9 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition" title="view product">
+                      <NavLink to={`/products/${item.id}`} className="text-white text-lg w-9 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition" title="view product">
                         <i className="fa-solid fa-magnifying-glass" />
-                      </a>
-                      <a href="#" className="text-white text-lg w-9 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition" title="add to wishlist">
-                        <i className="fa-solid fa-heart" />
-                      </a>
+                      </NavLink>
                     </div>
                   </div>
                   <div className="pt-4 pb-3 px-4">
-                    <a href="#">
+                    <NavLink to={`/products/${item.id}`}>
                       <h4 className="uppercase font-medium text-xl mb-2 text-gray-800 hover:text-primary transition">{item.name}</h4>
-                    </a>
+                    </NavLink>
                     <div className="flex items-baseline mb-1 space-x-2">
                       <p className="text-xl text-primary font-semibold">{Money(item.price)}</p>
                     </div>
@@ -166,8 +164,8 @@ const Home = (props: Props) => {
                       <div className="text-xs text-gray-500 ml-3">(150)</div>
                     </div>
                   </div>
-                  <a href="#" className="block w-full py-1 text-center text-white bg-primary border border-primary rounded-b hover:bg-transparent hover:text-primary transition">Add
-                    to cart</a>
+                  <NavLink to={`/products/${item.id}`} className="block w-full py-1 text-center text-white bg-primary border border-primary rounded-b hover:bg-transparent hover:text-primary transition">
+                    Thêm sản phẩm</NavLink>
                 </div>
               )
             })}

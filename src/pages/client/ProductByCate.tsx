@@ -6,9 +6,8 @@ import { Money } from '../../utils/upload';
 
 type Props = {}
 
-const ProductList = (props: Props) => {
+const ProductByCate = (props: Props) => {
     const { data: products = [] as IProduct[], error, isLoading } = useGetProductsQuery(undefined);
-
     return (
         <div>
             <div>
@@ -203,4 +202,4 @@ const ProductList = (props: Props) => {
     )
 }
 
-export default ProductList
+export default ProductByCate

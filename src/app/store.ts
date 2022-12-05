@@ -15,15 +15,16 @@ import { authApi } from '../services/auth';
 import { categoryApi } from '../services/category';
 import { productApi } from '../services/product';
 import authReducer from '../slice/auth';
+import { cartReducer } from '../slice/cartSlice';
 
 
 const persistConfig = {
     key: 'root',
     storage,
-    whitelist: ['auth'],
 }
 const rootReducer = combineReducers({
     auth: authReducer,
+    cart: cartReducer,
     [productApi.reducerPath]: productApi.reducer,
     [categoryApi.reducerPath]: categoryApi.reducer,
     [authApi.reducerPath]: authApi.reducer

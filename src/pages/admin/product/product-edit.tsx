@@ -18,12 +18,11 @@ const ProductEdit = (props: Props) => {
     const { id } = useParams()
     const [form] = Form.useForm()
     const { data: cate = [] as CateType[], isLoading, error } = useGetCategorysQuery(undefined)
-    const { data: getProduct, isLoading: loading, error: loi } = useGetProductQuery(id)
+    const { data: getProduct, isLoading: loading, error: loi } = useGetProductQuery(id as any)
     const navigate = useNavigate()
-    console.log(preview);
     useEffect(() => {
         form.setFieldsValue(getProduct)
-        setPreview(getProduct.image)
+        setPreview(getProduct?.image)
     }, [getProduct])
 
     const onSubmit: SubmitHandler<IProduct> = (data) => {
@@ -69,7 +68,7 @@ const ProductEdit = (props: Props) => {
                 </Form.Item>
                 <Form.Item
                     label="Danh mục"
-                    name="category"
+                    name="categoryId"
                     rules={[{ required: true, message: 'Không được để trống mục này' }]}
                 >
                     <Select>

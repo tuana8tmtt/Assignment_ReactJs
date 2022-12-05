@@ -33,15 +33,15 @@ const Signin = (props: Props) => {
             reset()
             message.success("Đăng nhập thành công")
             setTimeout(() => {
-                // navigate("/")
-            }, 2000)
+                navigate("/")
+            }, 1000)
 
         } catch (error) {
             alert(error)
         }
 
     }
-    
+
     return (
         <div>
             {/* login */}

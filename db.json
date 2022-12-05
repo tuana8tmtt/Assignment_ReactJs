@@ -11,18 +11,34 @@
     {
       "id": 6,
       "name": "Apple Watch serri 10",
-      "price": 10000,
+      "price": 8000000,
       "categoryId": 1,
       "image": "http://res.cloudinary.com/chanh-thon/image/upload/v1669568270/upload_preset/m7au3ogr9vxpqpcjrnd6.png",
       "desc": "<p>hahaha</p>"
     },
     {
+      "id": 7,
       "name": "Iphone 13 Pro Max",
-      "price": 1222222222,
-      "categoryId": 3,
+      "price": 25000000,
+      "categoryId": 1,
       "image": "http://res.cloudinary.com/dbo0o124i/image/upload/v1669619844/fd6qsvqbdwugtkuwfxek.jpg",
-      "desc": "<p>hay</p>",
-      "id": 7
+      "desc": "<p>hay</p>"
+    },
+    {
+      "id": 8,
+      "name": "Galaxy 22 Plus",
+      "price": 15000000,
+      "categoryId": 3,
+      "image": "http://res.cloudinary.com/dbo0o124i/image/upload/v1670226831/fcpgboitdulrbjn6ih8h.jpg",
+      "desc": "<p>Samsung number 1</p>"
+    },
+    {
+      "name": "Xiaomi Black Shark 4 Pro",
+      "price": 20000000,
+      "categoryId": 5,
+      "image": "http://res.cloudinary.com/dbo0o124i/image/upload/v1670226867/fdvwpf4z4eleuakymtpc.jpg",
+      "desc": "<p>máy này chơi game maxping hay</p>",
+      "id": 9
     }
   ],
   "categorys": [

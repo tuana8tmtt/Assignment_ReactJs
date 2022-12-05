@@ -1,13 +1,51 @@
+import { Avatar, Dropdown, Menu, message, Modal } from 'antd';
 import React from 'react'
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { CateType } from '../interfaces/category';
 import { useGetCategorysQuery } from '../services/category';
+import { UserOutlined } from '@ant-design/icons';
+import { useAppSelector } from '../app/hook';
 
 type Props = {}
 
 const Header = (props: Props) => {
     const { data: cate = [] as CateType[], error: err, isLoading: loading } = useGetCategorysQuery(undefined);
     const auth = JSON.parse(localStorage.getItem("user") as string);
+    const navigate = useNavigate()
+    const { cart } = useAppSelector((state: any) => state.cart);
+    const onLogout = () => {
+        Modal.confirm({
+            title: "Bạn có chắc muốn đăng xuất không ?",
+            onOk: () => {
+                localStorage.removeItem("user")
+                message.success("Đăng xuất thành công")
+                navigate('/')
+            }
+        })
+    }
+    const menu = (
+        <Menu>
+            <Menu.Item>
+                {auth &&
+                    <span>Xin chào: {auth.user.username}</span>
+                }
+            </Menu.Item>
+            {
+                auth && auth.user.role === "admin" &&
+                <Menu.Item>
+                    <Link to="/admin" className='text-white my-auto'>
+                        Admin
+                    </Link>
+                </Menu.Item>
+            }
+            <Menu.Item danger={true}>
+                <span onClick={onLogout}>
+                    Đăng xuất
+                </span>
+            </Menu.Item>
+
+        </Menu>
+    );
     return (
         <div>
             <header className="py-4 shadow-sm bg-white">
@@ -23,19 +61,13 @@ const Header = (props: Props) => {
                         <button className="bg-primary border border-primary text-white px-8 rounded-r-md hover:bg-transparent hover:text-primary transition">Search</button>
                     </div>
                     <div className="flex items-center space-x-4">
-                        <NavLink to="#" className="text-center text-gray-700 hover:text-primary transition relative">
+                        <NavLink to="/cart" className="text-center text-gray-700 hover:text-primary transition relative">
                             <div className="text-2xl">
                                 <i className="fa-solid fa-bag-shopping" />
                             </div>
                             <div className="text-xs leading-3">Cart</div>
                             <div className="absolute -right-3 -top-1 w-5 h-5 rounded-full flex items-center justify-center bg-primary text-white text-xs">
-                                2</div>
-                        </NavLink>
-                        <NavLink to="#" className="text-center text-gray-700 hover:text-primary transition relative">
-                            <div className="text-2xl">
-                                <i className="fa-regular fa-user" />
-                            </div>
-                            <div className="text-xs leading-3">Account</div>
+                                {cart.length}</div>
                         </NavLink>
                     </div>
                 </div>
@@ -66,7 +98,18 @@ const Header = (props: Props) => {
                             <NavLink to="#" className="text-gray-200 hover:text-white transition">Về chúng tôi</NavLink>
                             <NavLink to="#" className="text-gray-200 hover:text-white transition">Liên hệ</NavLink>
                         </div>
-                        <NavLink to="/signin" className="text-gray-200 hover:text-white transition">Đăng nhập</NavLink>
+                        {auth ?
+                            <div>
+                                <Dropdown overlay={menu} trigger={["click"]}>
+                                    <img
+                                        src={auth.user.image}
+                                        className="text-sm w-10 h-10 text-white rounded-full cursor-pointer"
+                                        alt=""
+                                    />
+                                </Dropdown>
+                            </div> :
+                            <NavLink to="/signin" className="text-gray-200 hover:text-white transition">Đăng nhập</NavLink>
+                        }
                     </div>
                 </div>
             </nav>

@@ -19,6 +19,8 @@ import CheckOut from "./pages/client/CheckOut";
 import Account from "./pages/auth/Account";
 import Profile from "./pages/auth/Profile";
 import LayoutPrivate from "./layouts/LayoutPrivate";
+import Cart from "./pages/client/Cart";
+import ProductByCate from "./pages/client/ProductByCate";
 
 
 function App() {
@@ -34,6 +36,8 @@ function App() {
                     <Route path="account" element={<Account />} />
                     <Route path="profile" element={<Profile />} />
                     <Route path="about" element={<h1>About Page</h1>} />
+                    <Route path="cart" element={<Cart />} />
+                    <Route path="category/:id" element={<ProductByCate />} />
 
                     <Route path="signin" element={<Signin />} />
                     <Route path="signup" element={<SignUp />} />

@@ -19,4 +19,4 @@ export const uploadImage = async (imgPost: any) => {
     }
     return imgLink
 }
-export const Money = (currency: number) => currency.toLocaleString("it-IT", { style: "currency", currency: "VND" });
+export const Money = (currency: number) => currency?.toLocaleString("it-IT", { style: "currency", currency: "VND" });
