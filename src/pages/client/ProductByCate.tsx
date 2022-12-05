@@ -2,10 +2,12 @@ import { message } from 'antd';
 import React, { useEffect, useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { NavLink, useParams } from 'react-router-dom'
+import { useAppDispatch } from '../../app/hook';
 import Sidebar from '../../components/Sidebar';
 import { CateType } from '../../interfaces/category';
 import { IProduct } from '../../interfaces/product';
 import { useGetProductByCateQuery, useGetProductsQuery } from '../../services/product';
+import { addToCart } from '../../slice/cartSlice';
 import { Money } from '../../utils/upload';
 
 type Props = {}
@@ -19,7 +21,11 @@ const ProductByCate = (props: Props) => {
     useEffect(() => {
         setDataProduct(cateFilter)
     }, [id])
-    console.log(dataProduct);
+    const dispatch = useAppDispatch();
+    const addToCartProduct = (data: any) => {
+        dispatch(addToCart(data))
+        message.success("Thêm vào giỏ hàng thành công")
+    }
 
     const {
         register,
@@ -108,8 +114,8 @@ const ProductByCate = (props: Props) => {
                                                 <div className="text-xs text-gray-500 ml-3">(150)</div>
                                             </div>
                                         </div>
-                                        <NavLink to={`/products/${item.id}`} className="block w-full py-1 text-center text-white bg-primary border border-primary rounded-b hover:bg-transparent hover:text-primary transition">
-                                            Thêm sản phẩm</NavLink>
+                                        <button onClick={() => addToCartProduct(item)} className="block w-full py-1 text-center text-white bg-primary border border-primary rounded-b hover:bg-transparent hover:text-primary transition">
+                                            Thêm sản phẩm</button>
                                     </div>
                                 )
                             })}

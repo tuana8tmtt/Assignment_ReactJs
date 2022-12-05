@@ -1,11 +1,13 @@
-import { List } from 'antd';
+import { List, message } from 'antd';
 import React from 'react'
 import { NavLink } from 'react-router-dom';
+import { useAppDispatch } from '../app/hook';
 import Header from '../components/Header'
 import { CateType } from '../interfaces/category';
 import { IProduct } from '../interfaces/product';
 import { useGetCategorysQuery } from '../services/category';
 import { useGetProductsQuery } from '../services/product';
+import { addToCart } from '../slice/cartSlice';
 import { Money } from '../utils/upload';
 
 type Props = {}
@@ -13,7 +15,11 @@ type Props = {}
 const Home = (props: Props) => {
   const { data: products = [] as IProduct[], error, isLoading } = useGetProductsQuery(undefined);
   const { data: cate = [] as CateType[], error: err, isLoading: loading } = useGetCategorysQuery(undefined);
-
+  const dispatch = useAppDispatch();
+  const addToCartProduct = (data: any) => {
+      dispatch(addToCart(data))
+      message.success("Thêm vào giỏ hàng thành công")
+  }
   return (
     <div>
       <div>
@@ -112,8 +118,8 @@ const Home = (props: Props) => {
                       <div className="text-xs text-gray-500 ml-3">(150)</div>
                     </div>
                   </div>
-                  <NavLink to={`/products/${item.id}`} className="block w-full py-1 text-center text-white bg-primary border border-primary rounded-b hover:bg-transparent hover:text-primary transition">
-                    Thêm sản phẩm</NavLink>
+                  <button onClick={() => addToCartProduct(item)} className="block w-full py-1 text-center text-white bg-primary border border-primary rounded-b hover:bg-transparent hover:text-primary transition">
+                    Thêm sản phẩm</button>
                 </div>
               )
             })}
@@ -164,8 +170,8 @@ const Home = (props: Props) => {
                       <div className="text-xs text-gray-500 ml-3">(150)</div>
                     </div>
                   </div>
-                  <NavLink to={`/products/${item.id}`} className="block w-full py-1 text-center text-white bg-primary border border-primary rounded-b hover:bg-transparent hover:text-primary transition">
-                    Thêm sản phẩm</NavLink>
+                  <button onClick={() => addToCartProduct(item)} className="block w-full py-1 text-center text-white bg-primary border border-primary rounded-b hover:bg-transparent hover:text-primary transition">
+                    Thêm sản phẩm</button>
                 </div>
               )
             })}
