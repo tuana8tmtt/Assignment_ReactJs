@@ -39,7 +39,6 @@ const Signin = (props: Props) => {
         } catch (error) {
             alert(error)
         }
-
     }
 
     return (

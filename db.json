@@ -93,5 +93,78 @@
       "image": "https://ui-avatars.com/api/?uppercase=true&name=Hoàng Nam&background=336666&size=500",
       "id": 3
     }
+  ],
+  "checkouts": [
+    {
+      "username": "Hoàng Nam",
+      "address": "Ha Noi",
+      "phone": "0123456789",
+      "email": "nam@123.com",
+      "cart": {
+        "order": [
+          {
+            "name": "Iphone 13 Pro Max",
+            "price": 20000000,
+            "categoryId": 1,
+            "image": "http://res.cloudinary.com/chanh-thon/image/upload/v1669565936/upload_preset/drnrypjzdepu01am2jag.jpg",
+            "desc": "<p>hay</p>",
+            "id": 5,
+            "quantity": 3
+          },
+          {
+            "id": 6,
+            "name": "Apple Watch serri 10",
+            "price": 8000000,
+            "categoryId": 1,
+            "image": "http://res.cloudinary.com/chanh-thon/image/upload/v1669568270/upload_preset/m7au3ogr9vxpqpcjrnd6.png",
+            "desc": "<p>hahaha</p>",
+            "quantity": 2
+          },
+          {
+            "id": 7,
+            "name": "Iphone 13 Pro Max",
+            "price": 25000000,
+            "categoryId": 1,
+            "image": "http://res.cloudinary.com/dbo0o124i/image/upload/v1669619844/fd6qsvqbdwugtkuwfxek.jpg",
+            "desc": "<p>hay</p>",
+            "quantity": 2
+          }
+        ],
+        "totalPrice": 126000000
+      },
+      "status": 1,
+      "id": 1
+    },
+    {
+      "username": "Hoàng Nam",
+      "address": "Ha Noi",
+      "phone": "123456",
+      "email": "nam@123.com",
+      "cart": {
+        "order": [
+          {
+            "name": "Iphone 13 Pro Max",
+            "price": 20000000,
+            "categoryId": 1,
+            "image": "http://res.cloudinary.com/chanh-thon/image/upload/v1669565936/upload_preset/drnrypjzdepu01am2jag.jpg",
+            "desc": "<p>hay</p>",
+            "id": 5,
+            "quantity": 2
+          },
+          {
+            "name": "Xiaomi Black Shark 4 Pro",
+            "price": 20000000,
+            "categoryId": 5,
+            "image": "http://res.cloudinary.com/dbo0o124i/image/upload/v1670226867/fdvwpf4z4eleuakymtpc.jpg",
+            "desc": "<p>máy này chơi game maxping hay</p>",
+            "id": 9,
+            "quantity": 6
+          }
+        ],
+        "totalPrice": 160000000
+      },
+      "status": 1,
+      "id": 2
+    }
   ]
 }

@@ -13,6 +13,7 @@ import {
 import storage from 'redux-persist/lib/storage';
 import { authApi } from '../services/auth';
 import { categoryApi } from '../services/category';
+import { checkoutApi } from '../services/checkout';
 import { productApi } from '../services/product';
 import authReducer from '../slice/auth';
 import { cartReducer } from '../slice/cartSlice';
@@ -27,7 +28,8 @@ const rootReducer = combineReducers({
     cart: cartReducer,
     [productApi.reducerPath]: productApi.reducer,
     [categoryApi.reducerPath]: categoryApi.reducer,
-    [authApi.reducerPath]: authApi.reducer
+    [authApi.reducerPath]: authApi.reducer,
+    [checkoutApi.reducerPath]: checkoutApi.reducer
 })
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
@@ -40,7 +42,8 @@ export const store = configureStore({
     }).concat([
         productApi.middleware,
         categoryApi.middleware,
-        authApi.middleware
+        authApi.middleware,
+        checkoutApi.middleware
     ]),
 })
 export type AppDispatch = typeof store.dispatch;
