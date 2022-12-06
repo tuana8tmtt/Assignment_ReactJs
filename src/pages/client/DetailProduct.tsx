@@ -18,6 +18,7 @@ const DetailProduct = (props: Props) => {
     const { cart } = useAppSelector((state: any) => state.cart);
     const { data: product, isLoading, error } = useGetProductQuery(id as any)
     const { data: products = [] as IProduct[], error: err, isLoading: loading } = useGetProductsQuery(undefined);
+    const filterData = products.filter((item: IProduct) => item.id != id)
     const dispatch = useAppDispatch();
     const addToCartProduct = (data: any) => {
         dispatch(addToCart(data))
@@ -38,9 +39,9 @@ const DetailProduct = (props: Props) => {
                 </div>
                 {/* ./breadcrumb */}
                 {/* product-detail */}
-                <div className="container grid grid-cols-2 gap-6">
-                    <div>
-                        <img src={product?.image} alt="product" className="w-full" />
+                <div className="container grid grid-cols-2">
+                    <div className='ml-28'>
+                        <img src={product?.image} alt="product" className="w-[500px]" />
                     </div>
                     <div>
                         <h2 className="text-3xl font-medium uppercase mb-2">{product?.name}</h2>
@@ -75,7 +76,7 @@ const DetailProduct = (props: Props) => {
                         <div className="flex items-baseline mb-1 space-x-2 font-roboto mt-4">
                             <p className="text-xl text-primary font-semibold">{Money(product?.price)}</p>
                         </div>
-                        <p className="mt-4 text-gray-600" dangerouslySetInnerHTML={{ __html: `${product?.desc}` }}></p>
+                        <p className="mt-4 text-gray-600">{product?.introduce}</p>
                         {/* <div className="mt-4">
                             <h3 className="text-sm text-gray-800 uppercase mb-1">Số lượng</h3>
                             <div className="flex border border-gray-300 text-gray-600 divide-x divide-gray-300 w-max">
@@ -105,11 +106,10 @@ const DetailProduct = (props: Props) => {
                 {/* ./product-detail */}
                 {/* description */}
                 <div className="container pb-16">
-                    <h3 className="border-b border-gray-200 font-roboto text-gray-800 pb-3 font-medium">Chi tiết sản phẩm</h3>
-                    <div className="w-3/5 pt-6">
-                        <div className="text-gray-600">
+                    <h3 className="border-b border-gray-200 font-roboto text-center text-gray-800 pb-3 font-medium">Chi tiết sản phẩm</h3>
+                    <div className="w-3/5 mx-auto pt-6">
+                        <div className="text-gray-600 items-center">
                             <p dangerouslySetInnerHTML={{ __html: `${product?.desc}` }}></p>
-
                         </div>
 
                     </div>
@@ -119,7 +119,7 @@ const DetailProduct = (props: Props) => {
                 <div className="container pb-16">
                     <h2 className="text-2xl font-medium text-gray-800 uppercase mb-6">Sản phẩm tương tự</h2>
                     <div className="grid grid-cols-4 gap-6">
-                        {products.map((item: IProduct, index: number) => {
+                        {filterData.map((item: IProduct, index: number) => {
                             return (
                                 <div className="bg-white shadow rounded overflow-hidden group" key={index}>
                                     <div className="relative">

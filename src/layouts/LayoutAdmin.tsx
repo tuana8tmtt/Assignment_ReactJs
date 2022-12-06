@@ -5,7 +5,7 @@ import {
     ContainerOutlined,
     DesktopOutlined,
     MailOutlined,
-    MenuFoldOutlined,
+    ShoppingCartOutlined,
     UnorderedListOutlined,
     PieChartOutlined,
 } from '@ant-design/icons';
@@ -34,10 +34,11 @@ type Props = {};
 
 const LayoutAdmin = (props: Props) => {
     const items: MenuItem[] = [
-        getItem(<NavLink to={"/admin"}>Dashboard</NavLink>, '1', <PieChartOutlined />),
-        getItem(<NavLink to={"/admin/category"}>Category</NavLink>, '4', <UnorderedListOutlined />),
-        getItem(<NavLink to={"/admin/products"}>Product</NavLink>, '2', <DesktopOutlined />),
-        getItem(<NavLink to={"/admin/user"}>User</NavLink>, '3', <ContainerOutlined />),
+        getItem(<NavLink to={"/admin"}>Bảng điều khiển</NavLink>, '1', <PieChartOutlined />),
+        getItem(<NavLink to={"/admin/category"}>Danh mục</NavLink>, '2', <UnorderedListOutlined />),
+        getItem(<NavLink to={"/admin/products"}>Sản phẩm</NavLink>, '3', <DesktopOutlined />),
+        // getItem(<NavLink to={"/admin/user"}>Người dùng</NavLink>, '4', <ContainerOutlined />),
+        getItem(<NavLink to={"/admin/order"}>Đơn hàng</NavLink>, '5', <ShoppingCartOutlined />),
     ];
     return (
         <Layout style={{height: '100vh'}}>

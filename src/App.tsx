@@ -21,6 +21,8 @@ import Profile from "./pages/auth/Profile";
 import LayoutPrivate from "./layouts/LayoutPrivate";
 import Cart from "./pages/client/Cart";
 import ProductByCate from "./pages/client/ProductByCate";
+import ListOrder from "./pages/admin/orders/listOrder";
+import EditOrder from "./pages/admin/orders/editOrder";
 
 
 function App() {
@@ -53,6 +55,10 @@ function App() {
                         <Route index element={<ListCategory />} />
                         <Route path="add" element={<AddCategory />} />
                         <Route path=":id/edit" element={<EditCategory />} />
+                    </Route>
+                    <Route path="order">
+                        <Route index element={<ListOrder />} />
+                        <Route path=":id/order" element={<EditOrder />} />
                     </Route>
                 </Route>
             </Routes>

@@ -4,4 +4,5 @@ export interface CartType {
     address: string,
     phone: number,
     email: string,
+    status: number
 }

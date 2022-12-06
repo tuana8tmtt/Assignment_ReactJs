@@ -9,8 +9,8 @@ export const checkoutApi = createApi({
             query: () => "/checkouts",
             providesTags: ["Checkout"]
         }),
-        getCheckout: builder.query({
-            query: () => "/checkouts",
+        getDetailCheckout: builder.query({
+            query: (id) => "/checkouts/" + id,
             providesTags: ["Checkout"]
         }),
         addCheckouts: builder.mutation({
@@ -38,4 +38,4 @@ export const checkoutApi = createApi({
         }),
     })
 })
-export const { useGetCheckoutsQuery, useGetCheckoutQuery, useAddCheckoutsMutation, useUpdateCheckoutsMutation, useRemoveCheckoutsMutation } = checkoutApi
+export const { useGetCheckoutsQuery, useGetDetailCheckoutQuery, useAddCheckoutsMutation, useUpdateCheckoutsMutation, useRemoveCheckoutsMutation } = checkoutApi

@@ -90,8 +90,18 @@ const ProductEdit = (props: Props) => {
                 </Form.Item>
 
                 <Form.Item
+                    label="Mô tả ngắn"
+                    name="introduce"
+                    rules={[{ required: true, message: 'Không được để trống mục này' }]}
+                >
+                    <Input />
+                </Form.Item>
+
+                <Form.Item
                     label="Mô tả"
                     name="desc"
+                    rules={[{ required: true, message: 'Không được để trống mục này' }]}
+
                 >
                     <ReactQuill className="bg-white" theme="snow" />
                 </Form.Item>

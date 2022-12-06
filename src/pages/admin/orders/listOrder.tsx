@@ -8,28 +8,24 @@ import type { ColumnsType } from 'antd/es/table';
 import { CateType } from "../../../interfaces/category";
 import { useGetCategoryQuery, useGetCategorysQuery } from "../../../services/category";
 import { Money } from "../../../utils/upload";
+import { useGetCheckoutsQuery, useRemoveCheckoutsMutation } from "../../../services/checkout";
+import { CartType } from "../../../interfaces/cart";
+type Props = {}
 
-
-type Props = {};
-
-const Product = (props: Props) => {
+const listOrder = (props: Props) => {
     const [open, setOpen] = useState(false);
     const [confirmLoading, setConfirmLoading] = useState(false);
-    const { data: products = [] as IProduct[], error, isLoading } = useGetProductsQuery(undefined);
-    const { data: cate = [] as CateType[], error: err, isLoading: loading } = useGetCategorysQuery(undefined);
-    const [removeProduct, results] = useRemoveProductMutation()
-
-    const dataTable = products.map((item: IProduct, index: number) => {
+    const { data: orders = [], isLoading, error } = useGetCheckoutsQuery(undefined)
+    const [removeOrder] = useRemoveCheckoutsMutation()
+    const dataTable = orders.map((item: CartType, index: number) => {
         return {
             key: index + 1,
             id: item.id,
-            name: item.name,
-            price: item.price,
-            image: item.image,
-            introduce: item.introduce,
-            categoryId: cate.filter((cate: CateType) => { return cate.id == item.categoryId }).reduce((result: any, item: CateType) => {
-                return `${result}${item.name}`
-            }, ""),
+            username: item.username,
+            address: item.address,
+            email: item.email,
+            phone: item.phone,
+            status: item.status
         }
     })
 
@@ -37,7 +33,7 @@ const Product = (props: Props) => {
         const key = 'updatable';
         setConfirmLoading(true);
         message.loading({ content: 'Loading...', key });
-        removeProduct(id)
+        removeOrder(id)
         setTimeout(() => {
             setOpen(false);
             setConfirmLoading(false);
@@ -56,44 +52,41 @@ const Product = (props: Props) => {
             key: 'key',
         },
         {
-            title: 'Hình ảnh',
-            dataIndex: 'image',
-            key: 'image',
-            render: (text) => <div><img src={text} className="w-16" alt="" /></div>,
+            title: 'Họ và tên',
+            dataIndex: 'username',
+            key: 'username',
         },
         {
-            title: 'Sản phẩm',
-            dataIndex: 'name',
-            key: 'name',
-            render: (text) => <div>{text}</div>,
+            title: 'Địa chỉ',
+            dataIndex: 'address',
+            key: 'address',
         },
         {
-            title: 'Giá',
-            dataIndex: 'price',
-            key: 'price',
-            render: (text) => <div>{Money(text)}</div>
+            title: 'Email',
+            dataIndex: 'email',
+            key: 'email',
         },
         {
-            title: 'Danh mục',
-            dataIndex: 'categoryId',
-            key: 'categoryId',
-            filters: cate.map((item: CateType) => { return { text: item.name, value: item.name } }),
-            onFilter: (value, record) => {
-                return record.categoryId == value
-            }
+            title: 'Số điện thoại',
+            dataIndex: 'phone',
+            key: 'phone',
         },
         {
-            title: 'Mô tả',
-            dataIndex: 'introduce',
-            key: 'introduce',
-            render: (text) => <div><p className="w-40 overflow-hidden whitespace-nowrap text-ellipsis">{text}</p></div>,
+            title: 'Trạng thái',
+            dataIndex: 'status',
+            key: 'status',
+            render: (order) => (
+                order == '1' ? <Tag color={"geekblue"}>Chờ xác nhận</Tag>
+                    : order == '2' ? <Tag color={"green"}>Đã xác nhận</Tag>
+                        : <Tag color={"volcano"}>Đã hủy</Tag>
+            )
         },
         {
             title: 'Action',
             key: 'action',
             render: (_, record) => (
                 <Space size="middle">
-                    <NavLink to={`/admin/products/${record.id}/edit`} style={{ color: "white" }}><Button className="bg-green-400 text-white">Edit</Button></NavLink>
+                    <NavLink to={`/admin/order/${record.id}/order`} style={{ color: "white" }}><Button className="bg-green-400 text-white">Xem chi tiết</Button></NavLink>
                     <Popconfirm
                         placement="topRight"
                         title="Bạn Có Muốn Xóa?"
@@ -113,11 +106,10 @@ const Product = (props: Props) => {
     ];
     return (
         <div>
-            <h1 className="text-2xl py-2">Danh sách sản phẩm</h1>
-            <Button><Link to="/admin/products/add" className="my-6">Add Product</Link></Button>
+            <h1 className="text-2xl py-2">Danh sách đặt hàng</h1>
             <Table columns={columns} dataSource={dataTable} />
         </div>
-    );
-};
+    )
+}
 
-export default Product;
+export default listOrder

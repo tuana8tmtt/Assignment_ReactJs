@@ -20,11 +20,11 @@ const ProductAdd = (props: Props) => {
     const { data: cate = [] as CateType[], isLoading, error } = useGetCategorysQuery(undefined)
     const navigate = useNavigate()
     const onSubmit: SubmitHandler<IProduct> = (data) => {
-        addProduct({...data, image:preview});
+        addProduct({ ...data, image: preview });
         message.success('Thêm sản phẩm thành công')
         setTimeout(() => {
             navigate("/admin/products")
-        },2000)
+        }, 2000)
     };
     const handlePreview = async (e: any) => {
         const imgLink = await uploadImage(e.target);
@@ -78,10 +78,17 @@ const ProductAdd = (props: Props) => {
                 >
                     <Input type="file" accept='.png,.jpg' className="form-control" onChange={handlePreview} />
                 </Form.Item>
-
+                <Form.Item
+                    label="Mô tả ngắn"
+                    name="introduce"
+                    rules={[{ required: true, message: 'Không được để trống mục này' }]}
+                >
+                    <Input />
+                </Form.Item>
                 <Form.Item
                     label="Mô tả"
-                    name="desc"
+                    name="desc" 
+                    rules={[{ required: true, message: 'Không được để trống mục này' }]}
                 >
                     <ReactQuill className="bg-white" theme="snow" />
                 </Form.Item>
