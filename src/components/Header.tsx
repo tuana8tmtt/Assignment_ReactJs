@@ -33,7 +33,7 @@ const Header = (props: Props) => {
             {
                 auth && auth.user.role === "admin" &&
                 <Menu.Item>
-                    <Link to="/admin" className='text-white my-auto'>
+                    <Link to="/admin/products" className='text-white my-auto'>
                         Admin
                     </Link>
                 </Menu.Item>

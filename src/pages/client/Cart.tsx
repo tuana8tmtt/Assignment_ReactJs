@@ -1,3 +1,4 @@
+import { message } from 'antd';
 import React from 'react'
 import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
@@ -19,6 +20,10 @@ const Cart = (props: Props) => {
     console.log(cart);
     const dispatch = useAppDispatch();
     const totalPrice = cart.reduce((total: any, current: any) => (total += current.price * current.quantity), 0)
+    const DeleteItem = (id: number) => {
+        dispatch(removeItem(id))
+        message.success("Xóa thành công")
+    }
     return (
         <div>
             <div className="container mx-auto mt-10">
@@ -42,7 +47,7 @@ const Cart = (props: Props) => {
                                     </div>
                                     <div className="flex flex-col justify-between ml-4 flex-grow">
                                         <span className="font-bold text-sm">{item.name}</span>
-                                        <button onClick={() => dispatch(removeItem(item.id))} className="font-semibold hover:text-red-500 text-gray-500 text-xs">Xóa</button>
+                                        <button onClick={() => DeleteItem(item.id as number)} className="font-semibold hover:text-red-500 text-gray-500 text-xs">Xóa</button>
                                     </div>
                                 </div>
                                 <div className="flex justify-center w-1/5">

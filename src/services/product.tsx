@@ -6,7 +6,7 @@ export const productApi = createApi({
     tagTypes: ["Product"],
     endpoints: (builder) => ({
         getProducts: builder.query({
-            query: () => "/products?_expand=category",
+            query: () => "/products",
             providesTags: ["Product"],
         }),
         getProduct: builder.query({

@@ -20,6 +20,7 @@ const Home = (props: Props) => {
       dispatch(addToCart(data))
       message.success("Thêm vào giỏ hàng thành công")
   }
+  
   return (
     <div>
       <div>
